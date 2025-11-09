@@ -5,7 +5,9 @@
   --foreground: #171717;
 }
 
-@theme inline {
+/* Replaced unsupported @theme at-rule with standard CSS variable assignments.
+   Tailwind v4 can read custom properties directly; editor no longer warns about unknown @theme. */
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -23,4 +25,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
