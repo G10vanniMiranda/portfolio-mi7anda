@@ -7,7 +7,7 @@ import AILightEffect from "../components/AILightEffect"
 
 export default function Sobre() {
     return (
-        <main className="relative min-h-screen bg-linear-to-b from-black via-neutral-950 to-black text-white overflow-hidden px-6 py-32">
+        <main className="relative min-h-screen bg-linear-to-b from-black via-neutral-950 to-black text-white overflow-hidden px-6 py-36">
             <AILightEffect /> {/* 🔥 Efeito IA Global */}
 
             {/* TÍTULO */}
@@ -65,10 +65,10 @@ export default function Sobre() {
                     </p>
 
                     {/* BOTÕES */}
-                    <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-6">
+                    <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-6 relative z-10">
                         <Link
                             href="/projetos"
-                            className="px-8 py-3 rounded-full bg-linear-to-r from-sky-500 to-blue-600 hover:from-blue-600 hover:to-sky-500 transition-all font-medium shadow-lg shadow-sky-600/30 text-white"
+                            className="px-8 py-3 rounded-full bg-linear-to-r from-sky-500 to-blue-600 hover:from-blue-600 hover:to-sky-500 transition-all font-medium shadow-lg shadow-sky-600/30 text-white cursor-pointer"
                         >
                             Ver Projetos
                         </Link>
@@ -76,7 +76,7 @@ export default function Sobre() {
                             href="https://wa.me/5569999787798?text=Ol%C3%A1%20Giovanni!%20Quero%20criar%20meu%20site%20profissional%20com%20voc%C3%AA."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-8 py-3 rounded-full border border-sky-500/40 hover:bg-sky-500/10 transition-all text-sky-400 font-medium"
+                            className="px-8 py-3 rounded-full border border-sky-500/40 hover:bg-sky-500/10 transition-all text-sky-400 font-medium cursor-pointer"
                         >
                             Fale comigo
                         </Link>
@@ -86,7 +86,7 @@ export default function Sobre() {
 
             {/* EFEITO DE LUZ INFERIOR */}
             <motion.div
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-sky-500/10 blur-[180px]"
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-sky-500/10 blur-[180px] pointer-events-none"
                 animate={{ opacity: [0.3, 0.7, 0.3] }}
                 transition={{ duration: 5, repeat: Infinity }}
             />

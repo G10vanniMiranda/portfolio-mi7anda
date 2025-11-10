@@ -16,7 +16,7 @@ export default function Contato() {
     }, [])
 
     return (
-        <main className="relative min-h-screen bg-linear-to-b from-black via-neutral-950 to-black text-white overflow-hidden px-6 flex flex-col justify-center">
+        <main className="relative min-h-screen bg-linear-to-b from-black via-neutral-950 to-black text-white overflow-hidden px-6 py-36 flex flex-col justify-center">
             <AILightEffect /> {/* ⚡️ Luz IA Global */}
 
             {/* TÍTULO */}

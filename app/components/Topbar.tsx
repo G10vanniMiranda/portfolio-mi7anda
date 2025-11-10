@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,12 +36,19 @@ export default function Topbar() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className={`fixed top-0 left-0 w-full z-50 backdrop-blur-xl transition-all duration-500 ${scrolled ? "bg-black/70 border-b border-white/10 shadow-lg" : "bg-transparent"}`}
             >
-                <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-                    <motion.h1 className="text-lg md:text-xl font-semibold tracking-wide text-white cursor-pointer" whileHover={{ scale: 1.05 }}>
-                        <Link href="/" className="block">
-                            <span className="bg-linear-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent font-bold">Giovanni&nbsp;Miranda</span>
+                <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
+                    <motion.div className="flex items-center cursor-pointer" whileHover={{ scale: 1.05 }}>
+                        <Link href="/" className="flex items-center gap-3">
+                            <Image
+                                src="/logo-sem-fundo.png"
+                                alt="Logo Giovanni Miranda"
+                                width={100}
+                                height={100}
+                                priority
+                                className="drop-shadow-[0_0_12px_rgba(56,189,248,0.45)] rounded"
+                            />
                         </Link>
-                    </motion.h1>
+                    </motion.div>
                     <nav className="hidden md:flex items-center gap-8">
                         {links.map((l) => (
                             <Link
