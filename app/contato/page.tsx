@@ -1,22 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useEffect } from "react"
+import { } from "react"
 import Link from "next/link"
 import AILightEffect from "../components/AILightEffect"
 
 export default function Contato() {
-    // Remove scroll apenas enquanto esta página está montada
-    useEffect(() => {
-        const originalOverflow = document.body.style.overflow
-        document.body.style.overflow = 'hidden'
-        return () => {
-            document.body.style.overflow = originalOverflow
-        }
-    }, [])
 
     return (
-        <main className="relative min-h-screen bg-linear-to-b from-black via-neutral-950 to-black text-white overflow-hidden px-6 py-36 flex flex-col justify-center">
+        <main className="relative min-h-screen bg-linear-to-b from-black via-neutral-950 to-black text-white overflow-x-hidden px-6 py-36 flex flex-col">
             <AILightEffect /> {/* ⚡️ Luz IA Global */}
 
             {/* TÍTULO */}
