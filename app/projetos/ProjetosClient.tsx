@@ -150,7 +150,7 @@ export default function ProjetosClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="text-4xl md:text-6xl font-semibold text-center mb-16 bg-linear-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(56,189,248,0.4)]"
+                className="text-4xl md:text-6xl font-semibold text-center mb-16 py-1 bg-linear-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(56,189,248,0.4)]"
             >
                 Projetos
             </motion.h1>

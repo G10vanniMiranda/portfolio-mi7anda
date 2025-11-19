@@ -40,7 +40,7 @@ export default function Topbar() {
                     <motion.div className="flex items-center cursor-pointer" whileHover={{ scale: 1.05 }}>
                         <Link href="/" className="flex items-center gap-3">
                             <Image
-                                src="/logo-sem-fundo.png"
+                                src="/logo.png"
                                 alt="Logo Giovanni Miranda"
                                 width={100}
                                 height={100}
