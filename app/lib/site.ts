@@ -6,4 +6,4 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mi7anda.vercel.app",
   whatsapp:
     "https://wa.me/5569999787798?text=Ol%C3%A1%20Giovanni!%20Quero%20criar%20meu%20site%20profissional%20com%20voc%C3%AA.",
-} as const;
+} as const

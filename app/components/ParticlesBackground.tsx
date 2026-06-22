@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { useEffect, useState } from "react";
-import type { Engine } from "@tsparticles/engine";
+import Particles, { initParticlesEngine } from "@tsparticles/react"
+import { loadSlim } from "@tsparticles/slim"
+import { useEffect, useState } from "react"
+import type { Engine } from "@tsparticles/engine"
 
 export default function ParticlesBackground() {
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(false)
 
   // Initialize the tsParticles engine once on the client using the slim bundle for smaller size
   useEffect(() => {
     initParticlesEngine(async (engine: Engine) => {
-      await loadSlim(engine);
-    }).then(() => setReady(true));
-  }, []);
+      await loadSlim(engine)
+    }).then(() => setReady(true))
+  }, [])
 
-  if (!ready) return null;
+  if (!ready) return null
 
   return (
     <Particles
@@ -61,5 +61,5 @@ export default function ParticlesBackground() {
       }}
       className="absolute inset-0 z-0"
     />
-  );
+  )
 }

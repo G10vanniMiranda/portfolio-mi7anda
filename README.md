@@ -25,6 +25,12 @@ npm audit --omit=dev
 
 O comando `check` executa lint, verificação de tipos e build de produção. Para testes E2E locais, mantenha `npm run dev` ativo em outro terminal. Os testes cobrem navegação, menu mobile e cards de projetos. O workflow em `.github/workflows/ci.yml` inicia o servidor automaticamente.
 
+## Sistema de componentes
+
+O projeto utiliza shadcn/ui com Radix, Tailwind CSS v4 e temas Light/Dark/System.
+Consulte [docs/shadcn-ui.md](docs/shadcn-ui.md) para componentes disponíveis,
+dependências e convenções de uso.
+
 ## Rotas
 
 - `/`

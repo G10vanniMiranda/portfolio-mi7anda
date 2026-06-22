@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Topbar from "./components/Topbar";
-import AILightEffect from "./components/AILightEffect";
-import { siteConfig } from "./lib/site";
+import type { Metadata } from "next"
+import "./globals.css"
+import Topbar from "./components/Topbar"
+import AILightEffect from "./components/AILightEffect"
+import { siteConfig } from "./lib/site"
+import { ThemeProvider } from "@/components/theme-provider"
+import { TooltipProvider } from "@/components/ui/tooltip"
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -21,7 +24,14 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [{ url: "/logo-sem-fundo.png", width: 500, height: 500, alt: siteConfig.name }],
+    images: [
+      {
+        url: "/logo-sem-fundo.png",
+        width: 500,
+        height: 500,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -29,16 +39,16 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/logo-sem-fundo.png"],
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" data-scroll-behavior="smooth">
-      <body className="antialiased relative min-h-screen">
+    <html lang="pt-BR" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body className="relative min-h-screen antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -48,14 +58,30 @@ export default function RootLayout({
               name: siteConfig.name,
               url: siteConfig.url,
               jobTitle: "Desenvolvedor Full Stack",
-              knowsAbout: ["Next.js", "React", "Node.js", "Tailwind CSS", "Supabase"],
+              knowsAbout: [
+                "Next.js",
+                "React",
+                "Node.js",
+                "Tailwind CSS",
+                "Supabase",
+              ],
             }).replace(/</g, "\\u003c"),
           }}
         />
-        <AILightEffect />
-        <Topbar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TooltipProvider>
+            <AILightEffect />
+            <Topbar />
+            {children}
+            <Toaster richColors closeButton />
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
