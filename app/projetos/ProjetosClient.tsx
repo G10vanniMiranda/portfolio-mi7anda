@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -88,83 +87,25 @@ const projetos = [
 export default function ProjetosClient() {
     return (
         <main className="relative min-h-screen bg-linear-to-b from-black via-neutral-950 to-black text-white overflow-hidden px-6 py-36">
-            {/* ⚡️ CAMADAS DE LUZ IA FLUTUANTE */}
-            <div className="absolute inset-0 -z-10 overflow-hidden">
-                {/* Base suave */}
+            <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.1),transparent_70%)]" />
-
-                {/* Núcleo de energia azul (centro) */}
-                <motion.div
-                    className="absolute left-1/2 top-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-500/20 blur-[180px]"
-                    animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0.9, 0.6] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                {/* Luz esquerda (ancorada à esquerda - sempre visível) */}
-                <motion.div
-                    className="absolute left-[220px] top-1/2 -translate-y-1/2 w-[1100px] h-[1100px] bg-[radial-gradient(circle,rgba(0,160,255,0.55)_0%,rgba(0,160,255,0.35)_20%,transparent_75%)] blur-[320px] mix-blend-screen pointer-events-none"
-                    animate={{
-                        x: ["-10%", "8%", "-10%"],
-                        y: ["-35%", "35%", "-25%"],
-                        opacity: [0.55, 0.9, 0.6],
-                        scale: [1, 1.08, 1],
-                    }}
-                    transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-                />
-                {/* Luz direita (ancorada à direita - escondida em mobile) */}
-                <motion.div
-                    className="hidden md:block absolute right-[-220px] top-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[radial-gradient(circle,rgba(0,200,255,0.5)_0%,rgba(0,140,255,0.25)_25%,transparent_75%)] blur-[260px] mix-blend-screen pointer-events-none"
-                    animate={{
-                        x: ["10%", "-6%", "10%"],
-                        y: ["30%", "-30%", "20%"],
-                        opacity: [0.4, 0.85, 0.5],
-                        scale: [1, 1.12, 1],
-                    }}
-                    transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                {/* Reflexo elétrico diagonal */}
-                <motion.div
-                    className="absolute inset-0 bg-[linear-gradient(120deg,rgba(0,255,255,0.1),transparent_60%)]"
-                    animate={{ opacity: [0.1, 0.25, 0.1], x: ["0%", "10%", "0%"] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                {/* Brilho IA pulsando no canto (mais intenso) */}
-                <motion.div
-                    className="absolute bottom-[-220px] right-[-170px] w-[780px] h-[780px] rounded-full bg-blue-500/40 blur-[220px] mix-blend-screen"
-                    animate={{
-                        scale: [0.85, 1.3, 0.85],
-                        opacity: [0.5, 0.95, 0.55],
-                    }}
-                    transition={{
-                        duration: 7,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                />
+                <div className="absolute -left-48 top-40 h-152 w-152 rounded-full bg-sky-500/15 blur-[150px]" />
+                <div className="absolute -right-48 bottom-20 hidden h-152 w-152 rounded-full bg-blue-500/15 blur-[150px] md:block" />
             </div>
 
             {/* TÍTULO */}
-            <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="text-4xl md:text-6xl font-semibold text-center mb-16 py-1 bg-linear-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(56,189,248,0.4)]"
+            <h1
+                className="hero-reveal text-4xl md:text-6xl font-semibold text-center mb-16 py-1 bg-linear-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(56,189,248,0.4)]"
             >
                 Projetos
-            </motion.h1>
+            </h1>
 
             {/* LISTA DE PROJETOS */}
             <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
                 {projetos.map((p, index) => (
-                    <motion.div
+                    <article
                         key={p.nome}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.2 }}
-                        whileHover={{ scale: 1.05 }}
-                        className="group relative p-0.5 rounded-2xl bg-linear-to-br from-sky-500/40 to-blue-600/30 hover:from-blue-600/50 hover:to-sky-500/50 transition-all duration-300 shadow-[0_0_30px_rgba(56,189,248,0.3)]"
+                        className="group relative p-0.5 rounded-2xl bg-linear-to-br from-sky-500/40 to-blue-600/30 hover:from-blue-600/50 hover:to-sky-500/50 transition-transform duration-300 hover:scale-[1.02] shadow-[0_0_24px_rgba(56,189,248,0.22)]"
                     >
                         <div className="bg-black rounded-2xl h-full overflow-hidden flex flex-col">
                             {/* Preview */}
@@ -175,8 +116,9 @@ export default function ProjetosClient() {
                                         alt={`Preview do projeto ${p.nome}`}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
-                                        priority={index < 2}
+                                        sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1200px) 30vw, 352px"
+                                        quality={70}
+                                        priority={index === 0}
                                     />
                                 ) : (
                                     <div className="absolute inset-0 bg-linear-to-br from-sky-900/40 via-cyan-800/30 to-blue-900/40" />
@@ -215,24 +157,19 @@ export default function ProjetosClient() {
                                 </Link>
                             </div>
                         </div>
-                    </motion.div>
+                    </article>
                 ))}
             </div>
 
             {/* BOTÃO VOLTAR */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
-                className="text-center mt-20"
-            >
+            <div className="text-center mt-20">
                 <Link
                     href="/"
                     className="px-8 py-3 rounded-full border border-sky-500/40 hover:bg-sky-500/10 transition-all text-sky-400 font-medium"
                 >
                     ← Voltar para Início
                 </Link>
-            </motion.div>
+            </div>
         </main>
     );
 }

@@ -1,9 +1,35 @@
-### Portfolio Mi7anda
+# Portfólio Giovanni Miranda
 
-<img src="/previw/home.jpg" alt="home" />
+Portfólio desenvolvido com Next.js, React, TypeScript, Tailwind CSS, Framer Motion e tsParticles.
 
-<img src="/previw/sobre.jpg" alt="sobre" />
+## Desenvolvimento
 
-<img src="/previw/projetos.jpg" alt="projetos" />
+```bash
+npm install
+npm run dev
+```
 
-<img src="/previw/contato.jpg" alt="contato" />
+Configure a URL pública usando o arquivo `.env.example` como referência:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://seu-dominio.com.br
+```
+
+## Validação
+
+```bash
+npm run check
+npm run test:e2e
+npm audit --omit=dev
+```
+
+O comando `check` executa lint, verificação de tipos e build de produção. Para testes E2E locais, mantenha `npm run dev` ativo em outro terminal. Os testes cobrem navegação, menu mobile e cards de projetos. O workflow em `.github/workflows/ci.yml` inicia o servidor automaticamente.
+
+## Rotas
+
+- `/`
+- `/sobre`
+- `/projetos`
+- `/contato`
+- `/robots.txt`
+- `/sitemap.xml`
